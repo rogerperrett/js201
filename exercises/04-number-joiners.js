@@ -4,13 +4,28 @@
 // Examples:
 // numberJoinerWhile(1, 10) --> '1_2_3_4_5_6_7_8_9_10'
 // numberJoinerWhile(12, 14) --> '12_13_14'
-
-
+function numberJoinerWhile(number1, number2) {
+    var text = '';
+    var i = number1;
+    while (i < number2) {
+        text += (i - 1 ) + 1 + "_";
+        i++;
+    }
+    return text + i;
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "numberJoinerFor" which does the same thing as "numberJoinerWhile",
 // except using a "for" loop internally.
-
+function numberJoinerFor(number1, number2) {
+    var text = '';
+    var i;
+    for (i = number1; i < number2; i++) {
+        text += (i - 1 ) + 1 + "_";
+    
+    }
+    return text + i;
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -21,3 +36,16 @@
 // numberJoinerFancy(1, 10) --> '1_2_3_4_5_6_7_8_9_10'
 // numberJoinerFancy(1, 5, '~') --> 1~2~3~4~5
 // numberJoinerFancy(3, 6, '***BANANAS***') --> 1***BANANAS***2***BANANAS***3
+function numberJoinerFancy(number1, number2, symbol1) {
+    var symbol = symbol1;
+    var text = '';
+    var i;
+    for (i = number1; i < number2; i++) {
+        if (symbol1 === undefined) {
+            text += (i - 1 ) + 1 + "_";
+        } else {
+            text += (i - 1 ) + 1 + symbol1;
+        }
+    }
+    return text + i;
+}

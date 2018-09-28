@@ -9,7 +9,23 @@
 // Examples:
 // tipAmount(100, 'good') --> 20
 // tipAmount(40, 'fair') --> 6
-
+function tipAmount(amount, service) {
+    var good = .20;
+    var fair = .15;
+    var poor = .10;
+    if (service === "good") {
+        return amount * good;
+    }
+    else if (service === "fair") {
+        return amount * fair;
+    }
+    else if (service === "poor") {
+         return amount * poor;
+    }
+    else {
+        return('service rating required');
+    }
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -20,7 +36,23 @@
 // Examples:
 // totalAmount(100, 'good') --> 120
 // totalAmount(40, 'fair') --> 46
-
+function totalAmount(amount, service) {
+    var good = .20;
+    var fair = .15;
+    var poor = .10;
+    if (service === "good") {
+        return amount + (amount * good);
+    }
+    else if (service === "fair") {
+        return amount + (amount * fair);
+    }
+    else if (service === "poor") {
+        return amount + (amount * poor);
+    }
+    else {
+        return('service rating required');
+    }
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -31,3 +63,21 @@
 // Examples:
 // splitAmount(100, 'good', 5) --> 24
 // splitAmount(40, 'fair', 2) --> 23
+function splitAmount(amount, service, numberOfPeople) {
+    var good = .20;
+    var fair = .15;
+    var poor = .10;
+    if (service === "good") {
+        return (amount + (amount * good)) / numberOfPeople;
+    }
+    else if (service === "fair") {
+        return (amount + (amount * fair)) / numberOfPeople;
+    }
+    else if (service === "poor") {
+        return (amount + (amount * poor)) / numberOfPeople;
+    }
+    else {
+        return('service rating required');
+    }
+
+}
