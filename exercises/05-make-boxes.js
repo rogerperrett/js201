@@ -32,30 +32,43 @@ makeSquare(0);
 // *    *
 // *    *
 // ******
-function makeBox(n) {
-    var rowSymbol = ""; // symbols used to creates the top and bottom row
-    for (var i = 0; i < n; i++) { // creates the solid row of the box
-        rowSymbol += "*";
+function makeBox(numbr) {
+    if  (numbr <= 2) {
+      var row = ""; //creates the first row
+      for (var i = 0; i < numbr; i++) {
+          row += "*";
+      }
+      var height = row; // creates columns
+      for (var j = 1; j < numbr; j++) {
+          height += "\n" + row;
+      }
+      return height;
     }
-    var hollowRow = ""; // makes the first hollow row of the box
-    for (var x = 0; x <= n; x++) {
-        if (x === 0) {
-            hollowRow += "*";
-        } else if (x === n) {
-            hollowRow += "*";
-        } else {
-            hollowRow += " ";
-        }
-        var allHollowRows = hollowRow; //repeats hollow row
-        for (var j = 0; j <= n; j++) {
-            allHollowRows += "\n" + hollowRow;
-        }
-        var allRows = rowSymbol + "\n" + allHollowRows + "\n" + rowSymbol; //concatenates rows
+    else {
+      var rowSymbol = "*"; // symbols used to creates the top and bottom row
+  for (var i = 1; i < numbr; i++) { // creates the solid row of the box
+      rowSymbol += "*";
+  }
+  var hollowRow = "*"; // makes the first hollow row of the box
+  for (var x = 0; x < numbr; x++) {
+      if (x === 0) {
+          hollowRow += "";
+      } else if (x === (numbr - 1)) {
+          hollowRow += "*";
+      } else {
+          hollowRow += " ";
+      }
+      var allHollowRows = hollowRow; //repeats hollow row
+      for (var j = 3; j < numbr; j++) {
+          allHollowRows += "\n" + hollowRow;
+      }
+      var allRows = rowSymbol + "\n" + allHollowRows + "\n" + rowSymbol; //concatenates rows
+  }
+ 
+  return allRows;
     }
-    console.log(allRows)
-    return allRows;
-}
-makeBox(0);
+  }
+
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "makeBanner" which is given some text and returns a banner
